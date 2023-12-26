@@ -3,7 +3,7 @@ import {useSelector, useDispatch} from "react-redux";
 import {removeUser} from "../redux/slice"
 
 export default function DisplayUsers() {
-    const userData = useSelector((data) => data.users)
+    const userData = useSelector((data) => data.usersData.users)
     const dispatch = useDispatch();
     console.log(userData);
     return (
