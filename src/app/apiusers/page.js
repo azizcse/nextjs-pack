@@ -13,7 +13,6 @@ export default function Page() {
     return (
         <div>
             <h1>User list from API</h1>
-
             {
                 apiUserData.map((item) => (
                     <h4>{item.name}</h4>
