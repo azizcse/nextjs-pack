@@ -5,21 +5,22 @@ import {
 } from "@chakra-ui/react";
 import {useState, useEffect} from "react";
 import {EditIcon, ViewIcon} from "@chakra-ui/icons";
-
+import axios from 'axios';
+import {getAllTask} from "../services/TaskService";
 
 export default function Dashboard() {
     const [items, setItems] = useState([])
     useEffect(() => {
         const fetchData = async () => {
             try {
+                console.log("Start fetching data");
+                const res = await getAllTask();
+                console.log("Using axios :" + res.data);
+
                 const response = await fetch('http://localhost:3000/tasks');
                 const newData = await response.json();
                 setItems(newData);
 
-
-                newData.map((item) => {
-                    console.log("Data :" + item.title);
-                })
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
