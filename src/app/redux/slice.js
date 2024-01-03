@@ -2,7 +2,8 @@ import {createSlice, nanoid, createAsyncThunk, current} from "@reduxjs/toolkit";
 
 const initialState = {
     users: JSON.parse(localStorage.getItem("users")) ? JSON.parse(localStorage.getItem("users")) : [],
-    userApiData: []
+    userApiData: [],
+    layoutType: "base"
 }
 
 export const fetchApiUsers = createAsyncThunk("fetchApiUsers", async () => {
@@ -31,6 +32,9 @@ const UserSlice = createSlice({
             state.users = data
             let userData = JSON.stringify(data);
             localStorage.setItem("users", userData)
+        },
+        setLayoutType: (state, action) => {
+            state.layoutType = action.payload
         }
     },
     extraReducers: (builder) => {
@@ -41,6 +45,6 @@ const UserSlice = createSlice({
     }
 })
 
-export const {addUser, removeUser} = UserSlice.actions;
+export const {addUser, removeUser,setLayoutType} = UserSlice.actions;
 
 export default UserSlice.reducer;
