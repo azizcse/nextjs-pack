@@ -1,7 +1,7 @@
 "use client"
 import {
     Container, Heading, Text, Box, SimpleGrid, Card, CardBody,
-    Divider, CardFooter, HStack, CardHeader, Flex, Button, Avatar
+    Divider, CardFooter, HStack, CardHeader, Flex, Button, Avatar, Spacer
 } from "@chakra-ui/react";
 import {useState, useEffect} from "react";
 import {EditIcon, ViewIcon} from "@chakra-ui/icons";
@@ -51,8 +51,12 @@ export default function Dashboard() {
 
                         <CardFooter>
                             <HStack>
-                                <Button variant="ghost" leftIcon={<ViewIcon/>}>Watch</Button>
-                                <Button variant="ghost" leftIcon={<EditIcon/>}>Comment</Button>
+                                <Button _hover={{bg: 'purple.400'}} variant="outline"
+                                        leftIcon={<ViewIcon/>}>Watch</Button>
+                                <Spacer/>
+                                <Button _hover={{bg: 'purple.400'}}
+                                        leftIcon={<EditIcon/>} border='1px'
+                                        borderColor='purple.500'>Comment</Button>
                             </HStack>
                         </CardFooter>
                     </Card>
