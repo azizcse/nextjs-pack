@@ -17,7 +17,7 @@ import {
     ListIcon
 } from '@chakra-ui/react'
 
-function Profile() {
+export default function Profile() {
     return (
         <Tabs mt="40px" p="20px" variant="enclosed" colorScheme="purple" isFitted>
             <TabList>
