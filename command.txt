@@ -1,0 +1,7 @@
+Json server
+----------------
+json-server --watch data/db.json
+
+Dev server
+------------------
+nap run dev
