@@ -29,7 +29,7 @@ export default function Dashboard() {
     }, []);
 
     return (
-        <SimpleGrid spacing={10} minChildWidth={300}>
+        <SimpleGrid spacing={5} minChildWidth={300}>
             {
                 items && items.map(task => (
                     <Card key={task.id} borderTop="8px" borderColor="purple.400" bg="white">

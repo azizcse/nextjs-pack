@@ -4,4 +4,4 @@ json-server --watch data/db.json
 
 Dev server
 ------------------
-nap run dev
+npm run dev
