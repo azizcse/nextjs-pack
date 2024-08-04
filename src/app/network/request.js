@@ -1,6 +1,8 @@
 import axios from "axios";
 
-axios.defaults.baseURL = 'http://localhost:3000'
+require('dotenv').config();
+
+axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_URL
 axios.defaults.timeout = 60000;
 
 
@@ -49,6 +51,5 @@ function prepareFailedResponse(data) {
         status: data?.status
     }
 }
-
 
 export default axios;

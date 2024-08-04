@@ -1,22 +1,24 @@
 "use client"
 import {
     Container, Heading, Text, Box, SimpleGrid, Card, CardBody,
-    Divider, CardFooter, HStack, CardHeader, Flex, Button, Avatar, Spacer
+    Divider, CardFooter, HStack, CardHeader, Flex, Button, Avatar, Spacer,useToast
 } from "@chakra-ui/react";
 import {useState, useEffect} from "react";
 import {EditIcon, ViewIcon} from "@chakra-ui/icons";
-import axios from 'axios';
-import {getAllTask} from "../services/TaskService";
+import ApiService from "../network/ApiService"
 
 export default function Dashboard() {
     const [items, setItems] = useState([])
+    const toast = useToast();
     useEffect(() => {
-        const fetchData = async () => {
+        let mounted = true;
+        async function fetchData(){
             try {
                 console.log("Start fetching data");
-                const res = await getAllTask();
-                console.log("Using axios :" + res.data);
-
+                const data = await ApiService.get('/users');
+                data.map((item)=>{
+                    console.log('Axios Data:', item.id);
+                });
                 const response = await fetch('http://localhost:3000/tasks');
                 const newData = await response.json();
                 setItems(newData);
@@ -26,6 +28,9 @@ export default function Dashboard() {
             }
         };
         fetchData();
+        return () => {
+            mounted = false;
+        };
     }, []);
 
     return (
