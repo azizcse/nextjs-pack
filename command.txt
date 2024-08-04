@@ -1,0 +1,7 @@
+Json server
+----------------
+json-server --watch data/db.json
+
+Dev server
+------------------
+npm run dev
